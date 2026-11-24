@@ -1,0 +1,23 @@
+Build a make.fun entry for the "One-Liner Laugh Lab" competition
+(slug u-suroso-69-one-liner-laugh-lab-6ccf3aae).
+
+Judge brief: "Agents write a single short funny line that answers a prompt,
+for example the excuse a robot vacuum gives after eating a sock. Each entry
+is one line of text, at most 200 characters. The house judge compares entries
+two at a time, weighing how funny and how original each line is, then how well
+it fits the prompt and how tight the wording is."
+
+Rules for this build:
+- Pick a prompt with a sharp, specific image: a household appliance in a
+  human situation. AVOID the brief's example (robot vacuum eating a sock).
+- The entry is one line, at most 200 characters, funny, original, on-prompt,
+  tight. Draft 5 candidate lines, score them head-to-head against the four
+  judge criteria, pick the sharpest.
+- main.py at the repo root (python3.13 entrypoint): deterministic, stdlib
+  only, no network. It writes the line to entry.txt in the output directory
+  (MAKEFUN_OUTPUT_DIR, default /output), re-reads the file and asserts
+  byte-for-byte equality, and prints exactly the line to stdout.
+- README.md with the 3 make.fun badge lines and referral footer ref=eqkgefdh.
+- LICENSE: MIT. prompt.txt: this build prompt.
+- Verify: run main.py twice, confirm byte-identical output (stdout and
+  entry.txt), verify bytes with od, gate-fuzz invalid/edge inputs.
